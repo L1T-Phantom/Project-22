@@ -1,5 +1,5 @@
 var starImg, fairyImg, bgImg;
-var fairy , music;
+var fairy , fairyVoice;
 var star, starBody;
 
 const Engine = Matter.Engine;
@@ -12,14 +12,14 @@ function preload()
 	starImg = loadImage("images/star.png");
 	fairyImg = loadAnimation("images/fairyImage1.png","images/fairyImage2.png");
 	bgImg = loadImage("images/starNight.png");
-	music = loadSound("sound/JoyMusic.mp3");
+	fairyVoice = loadSound("sound/JoyMusic.mp3");
 
 }
 
 function setup() {
 	createCanvas(800, 750);
 
-    music.play();
+	fairyVoice.play();
 
 	fairy = createSprite(130, 520);
 	fairy.addAnimation("fairyflying",fairyImg);  
@@ -47,7 +47,9 @@ function draw() {
   star.x= starBody.position.x 
   star.y= starBody.position.y 
 
-  if(star.isTouching(fairy)){
+  console.log(star.y);
+
+  if(star.y > 470 && starBody.position.y > 470 ){
   	Matter.Body.setStatic(starBody,true);
   }
 
