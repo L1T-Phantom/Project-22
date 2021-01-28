@@ -49,7 +49,7 @@ function draw() {
 
   console.log(star.y);
 
-  if(star.y > 470 && starBody.position.y > 470 ){
+  if(star.isTouching(fairy)){
   	Matter.Body.setStatic(starBody,true);
   }
 
