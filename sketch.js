@@ -49,9 +49,12 @@ function draw() {
 
   console.log(star.y);
 
-  if(star.isTouching(fairy)){
+  if(fairy.isTouching(star)){
   	Matter.Body.setStatic(starBody,true);
   }
+
+  fairy.debug = true;
+  fairy.setCollider("rectangle",500,0,100,100);
 
   drawSprites();
 
